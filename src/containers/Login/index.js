@@ -1,46 +1,35 @@
 import React from "react";
-import _isEmpty from "lodash.isempty";
-import {
-  Stack,
-  TextField,
-  Button,
-  PrimaryButton
-} from "office-ui-fabric-react";
+import { Stack } from "office-ui-fabric-react";
+import LoginForm from "./components/LoginForm";
+import OTPForm from "./components/OTPForm";
 import { LoginStyler, LoginHeader } from "./style";
 import { HeaderText } from "../../styles/common";
-import { secondaryColor } from "../../styles/variables";
+import { primaryColor } from "../../styles/variables";
 import { useLoginData } from "../../hooks/loginHook";
+import { ENUM } from "../../constants";
 
 const LoginPage = () => {
-  const { errors, inputs, updateErrors, updateInput } = useLoginData(store => ({
-    errors: store.errors,
-    inputs: store.inputs,
-    updateErrors: store.updateErrors,
-    updateInput: store.updateInput
-  }));
-
-  const handleValidateForm = () => {};
-
-  const handleSubmitForm = () => {
-    const errorList = handleValidateForm();
-    if (!_isEmpty(errorList)) {
-      updateErrors(errorList);
-    } else {
-      console.warn("Submitting...");
-    }
-  };
+  const stage = useLoginData(store => store.stage);
 
   return (
-    <LoginStyler
-      tokens={{
-        childrenGap: 50
-      }}
-    >
-      <LoginHeader>M A K A [Admin]</LoginHeader>
-      <TextField label="Email:" required underlined />
-      <PrimaryButton color={secondaryColor} onClick={handleSubmitForm}>
-        Đăng Ký/Đăng Nhập
-      </PrimaryButton>
+    <LoginStyler>
+      <Stack
+        className="login-panel"
+        tokens={{
+          childrenGap: 40
+        }}
+      >
+        <div
+          className={["d-flex", "flex-column", "align-items-center"].join(" ")}
+        >
+          <LoginHeader>M A K A</LoginHeader>
+          <HeaderText colorHex={primaryColor} size="sm">
+            -- For Administrator --
+          </HeaderText>
+        </div>
+        {stage === ENUM.LOGIN_FORM_STAGE.LOGIN && <LoginForm />}
+        {stage === ENUM.LOGIN_FORM_STAGE.OTP && <OTPForm />}
+      </Stack>
     </LoginStyler>
   );
 };

@@ -3,13 +3,11 @@ import { useContext } from "react";
 import { useObserver } from "mobx-react";
 
 export const useLoginData = dataSelector => {
-  const value = useContext(LoginContext);
+  const store = useContext(LoginContext);
 
-  if (!value) {
+  if (!store) {
     throw new Error("Cannot get login context!");
   }
-
-  const store = value;
 
   return useObserver(() => dataSelector(store));
 };

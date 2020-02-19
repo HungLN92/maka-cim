@@ -19,9 +19,11 @@ export const ColorText = styled(
   }}
 `;
 
-export const HeaderText = styled(({ children, colorHex, size, ...remains }) => (
-  <div {...remains}>{children}</div>
-))`
+export const HeaderText = styled(
+  ({ bold, children, colorHex, size, ...remains }) => (
+    <div {...remains}>{children}</div>
+  )
+)`
   ${({ colorHex }) => colorHex && `color: ${colorHex};`}
   ${({ bold }) => bold && `font-weight: bold;`}
   ${({ size }) => {

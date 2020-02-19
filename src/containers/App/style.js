@@ -4,6 +4,7 @@ import { mediumScrWidth } from "../../styles/variables";
 export const AppStyler = styled.div`
   position: relative;
   max-width: 100%;
+  min-height: 100vh;
   @media (min-width: ${mediumScrWidth}) {
     margin-left: 15vw;
     width: 70vw;
@@ -11,6 +12,10 @@ export const AppStyler = styled.div`
 `;
 
 export const PageContentStyler = styled.div`
-  margin-top: 60px;
+  padding: 30px;
   width: 100%;
+  @media (min-width: ${mediumScrWidth}) {
+    padding-top: 70px;
+    padding-left: 90px;
+  }
 `;

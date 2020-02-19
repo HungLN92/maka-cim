@@ -1,7 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import { initializeIcons } from "@uifabric/icons";
 import App from "./containers/App";
 import * as serviceWorker from "./serviceWorker";
+
+library.add(fas, far);
+initializeIcons();
 
 ReactDOM.render(<App />, document.getElementById("root"));
 
