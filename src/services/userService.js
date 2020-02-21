@@ -12,6 +12,16 @@ export const createUserService = () => {
       const request = new Request(API.GET_USERS, options);
       const response = await customRequest(request);
       return response;
+    },
+    getDetails: async () => {
+      const headers = getPrivateHeaders();
+      const options = {
+        method: "GET",
+        headers
+      };
+      const request = new Request(API.GET_USER_DETAILS, options);
+      const response = await customRequest(request);
+      return response;
     }
   };
 };

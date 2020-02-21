@@ -6,6 +6,7 @@ export const createUserStore = () => {
 
   const store = {
     users: [],
+    userDetails: {},
     setUsers(users) {
       store.users = users;
     },
@@ -23,22 +24,36 @@ export const createUserStore = () => {
       // });
       store.users = [
         {
-          userName: "hungle@tomochain.com",
+          username: "hungle@tomochain.com",
           createdTime: 1579054891000
         },
         {
-          userName: "hung20101643@gmail.com",
+          username: "hung20101643@gmail.com",
           createdTime: 1579054901000
         }
       ];
+    },
+    async callGetUserDetails() {
+      const resData = await userServ.getDetails();
+      runInAction(() => {
+        if (resData.data) {
+          const raw = resData.data;
+          store.userDetails = {
+            username: raw.userName,
+            createdTime: raw.createdAt
+          };
+        }
+      });
     }
   };
 
   decorate(store, {
     users: observable,
+    userDetails: observable,
     setUsers: action,
     resetStore: action,
-    callGetUsers: action
+    callGetUsers: action,
+    callGetUserDetails: action
   });
 
   return store;

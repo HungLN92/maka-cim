@@ -111,7 +111,10 @@ export const createOfferStore = () => {
     chosenOffer: observable,
     setOffers: action,
     updateSearchInputs: action,
-    setOffer: action
+    setOffer: action,
+    resetStore: action,
+    callGetOffers: action,
+    callGetOfferById: action
   });
 
   return store;

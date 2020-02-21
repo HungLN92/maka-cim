@@ -30,5 +30,9 @@ export default {
     "04": yellowColor,
     "05": greenColor,
     "06": secondaryColor
+  },
+  OFFER_TYPE: {
+    BUY: "1",
+    SELL: "2"
   }
 };

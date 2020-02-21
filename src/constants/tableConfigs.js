@@ -104,7 +104,7 @@ export default {
       name: "Tài khoản",
       iconClassName: "mr-2",
       iconName: "Contact",
-      fieldName: "userName",
+      fieldName: "username",
       minWidth: 250,
       maxWidth: 550,
       isRowHeader: true,

@@ -22,7 +22,6 @@ export const NavigationBarStyler = styled.div`
     width: 50px;
     height: 50px;
     min-width: 0px;
-    visibility: visible;
   }
   .profile-btn {
     padding: 0px;
@@ -48,7 +47,7 @@ export const NavigationBarStyler = styled.div`
     width: 80vw;
     .sidebar-toggler {
       padding: 10px 15px;
-      visibility: hidden;
+      display: none;
     }
     .profile-btn {
       padding: 10px 15px;
@@ -57,10 +56,18 @@ export const NavigationBarStyler = styled.div`
 `;
 
 export const LogoStyler = styled.div`
+  margin: 0px 20px;
   color: ${whiteColor};
   font-size: ${largeFont};
   font-weight: bold;
   cursor: pointer;
+`;
+
+export const WelcomeTextStyler = styled.div`
+  display: none;
+  @media (min-width: ${mediumScrWidth}) {
+    display: block;
+  }
 `;
 
 export const MobileSideBarStyler = styled(

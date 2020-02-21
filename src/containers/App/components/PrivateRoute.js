@@ -5,6 +5,7 @@ import SideBar from "../../../components/SideBar";
 import { PageContentStyler } from "../style";
 import { getAccessToken } from "../../../utils/storage";
 import { ROUTE } from "../../../constants";
+import { parseQuery } from "../../../utils/misc";
 
 const PrivateRoute = ({ component = () => null, ...remains }) => {
   const Component = component;
@@ -18,7 +19,7 @@ const PrivateRoute = ({ component = () => null, ...remains }) => {
             <NavigationBar />
             <SideBar />
             <PageContentStyler>
-              <Component location={location} />
+              <Component location={location} queryObj={parseQuery(location)} />
             </PageContentStyler>
           </Fragment>
         ) : (

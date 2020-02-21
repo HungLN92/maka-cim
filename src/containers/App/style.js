@@ -12,7 +12,7 @@ export const AppStyler = styled.div`
 `;
 
 export const PageContentStyler = styled.div`
-  padding: 30px;
+  padding: 20px 30px;
   width: 100%;
   @media (min-width: ${mediumScrWidth}) {
     padding-top: 70px;
