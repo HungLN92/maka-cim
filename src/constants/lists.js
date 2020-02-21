@@ -17,6 +17,10 @@ export default {
   ],
   OFFER_STATUS_FILTERS: [
     {
+      label: "Tất cả",
+      value: ENUM.OFFER_STATUS.ALL
+    },
+    {
       label: "Chờ xử lý",
       value: ENUM.OFFER_STATUS.PENDING
     },

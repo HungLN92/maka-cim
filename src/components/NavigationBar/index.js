@@ -36,9 +36,14 @@ const NavigationBar = () => {
     ]
   };
 
-  const renderMenuItem = (item, index) => {
+  const renderMenuItem = item => {
     return (
-      <div className="menu-item" onClick={() => history.push(item.url)}>
+      <div
+        className={`menu-item${
+          window.location.pathname === item.url ? " active" : ""
+        }`}
+        onClick={() => history.push(item.url)}
+      >
         <Icon iconName={item.iconName} />
         <span>{item.label}</span>
       </div>
@@ -54,7 +59,9 @@ const NavigationBar = () => {
         >
           <Icon iconName="GlobalNavButton" title="Mở danh mục" />
         </PrimaryButton>
-        <LogoStyler>M A K A</LogoStyler>
+        <LogoStyler onClick={() => history.push(ROUTE.OFFER)}>
+          M A K A
+        </LogoStyler>
         <CommandButton className="profile-btn" menuProps={menu}>
           <FontAwesomeIcon className="mr-1" icon="user-circle" />
         </CommandButton>

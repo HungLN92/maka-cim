@@ -6,8 +6,8 @@ export const AppStyler = styled.div`
   max-width: 100%;
   min-height: 100vh;
   @media (min-width: ${mediumScrWidth}) {
-    margin-left: 15vw;
-    width: 70vw;
+    margin-left: 10vw;
+    width: 80vw;
   }
 `;
 

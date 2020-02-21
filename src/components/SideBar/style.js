@@ -2,7 +2,8 @@ import styled from "styled-components";
 import {
   brightTextColor,
   blackColor,
-  mediumScrWidth
+  mediumScrWidth,
+  primaryColor
 } from "../../styles/variables";
 
 export const SideBarStyler = styled.div`
@@ -21,6 +22,9 @@ export const SideBarStyler = styled.div`
     color: ${blackColor};
     transform: scale(2.5);
     cursor: pointer;
+    &.active {
+      color: ${primaryColor};
+    }
   }
   @media (min-width: ${mediumScrWidth}) {
     display: block;

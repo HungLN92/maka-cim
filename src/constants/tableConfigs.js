@@ -3,6 +3,7 @@ import { ColorText } from "../styles/common";
 import { primaryColor } from "../styles/variables";
 import { formatTime } from "../utils/misc";
 import { ENUM, LIST } from ".";
+import { IconButton } from "office-ui-fabric-react";
 
 export default {
   OFFER: [
@@ -90,12 +91,62 @@ export default {
       fieldName: "updatedTime",
       minWidth: 120,
       maxWidth: 150,
-      isSorted: true,
-      isSortedDescending: true,
       isResizable: true,
       isPadded: true,
       onRender: item => {
         return formatTime(item.updatedTime);
+      }
+    }
+  ],
+  USERS: [
+    {
+      key: "column1",
+      name: "Tài khoản",
+      iconClassName: "mr-2",
+      iconName: "Contact",
+      fieldName: "userName",
+      minWidth: 250,
+      maxWidth: 550,
+      isRowHeader: true,
+      isResizable: true,
+      isPadded: true
+    },
+    {
+      key: "column2",
+      name: "Ngày khởi tạo",
+      iconClassName: "mr-2",
+      iconName: "Clock",
+      fieldName: "createdTime",
+      minWidth: 120,
+      maxWidth: 400,
+      isResizable: true,
+      isPadded: true,
+      onRender: item => formatTime(item.createdTime)
+    },
+    {
+      key: "column3",
+      name: "",
+      fieldName: "actions",
+      minWidth: 120,
+      maxWidth: 150,
+      isResizable: true,
+      isPadded: true,
+      onRender: () => {
+        return (
+          <div className={["d-flex", "align-items-center"].join(" ")}>
+            <IconButton
+              iconProps={{ iconName: "Info" }}
+              title="Chi tiết"
+              className="mr-3"
+            />
+            <IconButton
+              iconProps={{ iconName: "Edit" }}
+              title="Sửa đổi"
+              className="mr-3"
+            />
+            <IconButton iconProps={{ iconName: "Delete" }} title="Xóa" />
+          </div>
+        );
       }
     }
   ]

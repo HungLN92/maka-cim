@@ -44,8 +44,8 @@ export const NavigationBarStyler = styled.div`
     top: 0px;
     left: 0px;
     z-index: 99;
-    margin-left: 15vw;
-    width: 70vw;
+    margin-left: 10vw;
+    width: 80vw;
     .sidebar-toggler {
       padding: 10px 15px;
       visibility: hidden;
@@ -60,6 +60,7 @@ export const LogoStyler = styled.div`
   color: ${whiteColor};
   font-size: ${largeFont};
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const MobileSideBarStyler = styled(
@@ -86,6 +87,9 @@ export const MobileSideBarStyler = styled(
     i {
       margin-right: 30px;
       transform: scale(2);
+    }
+    &.active {
+      opacity: 0.5;
     }
   }
   @media (min-width: ${smallScrWidth}) {

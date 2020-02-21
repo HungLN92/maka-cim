@@ -13,6 +13,7 @@ import { history } from "../../utils/history";
 import { ROUTE } from "../../constants";
 import { getAccessToken } from "../../utils/storage";
 import "../../styles/global.scss";
+import UserProvider from "../../contexts/userContext";
 
 const App = () => {
   return (
@@ -20,38 +21,40 @@ const App = () => {
       <GlobalProvider>
         <LoginProvider>
           <OfferProvider>
-            <Router history={history}>
-              <Route
-                exact
-                strict
-                path={ROUTE.LOGIN}
-                render={() =>
-                  getAccessToken() ? (
-                    <Redirect to={ROUTE.OFFER} />
-                  ) : (
-                    <LoginPage />
-                  )
-                }
-              />
-              <PrivateRoute exact path={ROUTE.OFFER} component={OfferPage} />
-              <PrivateRoute
-                exact
-                path={ROUTE.USER_MANAGEMENT}
-                component={UserPage}
-              />
-              {/* <Route
-          exact
-          path="/"
-          render={() =>
-            getAccessToken() ? (
-              <Redirect to={ROUTE.HOMEPAGE} />
-            ) : (
-              <Redirect to={ROUTE.LOGIN} />
-            )
-          }
-        /> */}
-            </Router>
-            <Loading />
+            <UserProvider>
+              <Router history={history}>
+                <Route
+                  exact
+                  strict
+                  path={ROUTE.LOGIN}
+                  render={() =>
+                    getAccessToken() ? (
+                      <Redirect to={ROUTE.OFFER} />
+                    ) : (
+                      <LoginPage />
+                    )
+                  }
+                />
+                <PrivateRoute exact path={ROUTE.OFFER} component={OfferPage} />
+                <PrivateRoute
+                  exact
+                  path={ROUTE.USER_MANAGEMENT}
+                  component={UserPage}
+                />
+                <Route
+                  exact
+                  path={ROUTE.DEFAULT}
+                  render={() =>
+                    getAccessToken() ? (
+                      <Redirect to={ROUTE.HOMEPAGE} />
+                    ) : (
+                      <Redirect to={ROUTE.LOGIN} />
+                    )
+                  }
+                />
+              </Router>
+              <Loading />
+            </UserProvider>
           </OfferProvider>
         </LoginProvider>
       </GlobalProvider>

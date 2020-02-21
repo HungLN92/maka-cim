@@ -10,6 +10,7 @@ const SideBarItem = group => {
       iconName={group.iconName}
       title={group.label}
       onClick={() => history.push(group.url)}
+      className={window.location.pathname === group.url ? "active" : ""}
     />
   );
 };

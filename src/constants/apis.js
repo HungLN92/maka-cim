@@ -17,7 +17,8 @@ export default {
   GET_ACCESS_TOKEN: `${baseUrl}/api/v1/login/token`,
   REFRESH_TOKEN: `${baseUrl}/api/v1/auth/refresh-token`,
   GET_OFFERS: `${baseUrl}/api/v1/offer/search`,
-  GET_OFFER_BY_ID: `${baseUrl}/api/v1/offer/id`
+  GET_OFFER_BY_ID: `${baseUrl}/api/v1/offer/id`,
+  GET_USERS: `${baseUrl}/api/v1/user/search`
   // CREATE_ORDER: `${baseUrl}/api/v1/order/create`,
   // GET_ORDERS: `${baseUrl}/api/v1/order/search`,
   // GET_ORDER_BY_ID: `${baseUrl}/api/v1/order/id`,
